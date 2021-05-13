@@ -14,10 +14,10 @@ module.exports = (client) => {
             usercount *= 10;
             usercount = usercount.toString().slice(3)
             stateswitch = !stateswitch; //change state
-            if (stateswitch) client.user.setActivity(`${config.prefix}help | musicium.eu`, {
-                type: "PLAYING"
+            if (stateswitch) client.user.setActivity(`${config.prefix}help | @darryladr`, {
+                type: "LISTENING"
             });
-            else client.user.setActivity(`${usercount}k User | ${client.guilds.cache.size} Server`, {
+            else client.user.setActivity(`${client.guilds.cache.size} Server | @darryladr`, {
                 type: "PLAYING"
             });
         }, 5000); //5 second delay
@@ -102,14 +102,8 @@ module.exports = (client) => {
     function getAll(client, guild) {
         const embed = new MessageEmbed()
             .setColor(config.colors.yes)
-            .setTitle('Help Menu - THANKS FOR INVITING ME!')
-            .addField("**__BOT BY:__**", `
-                >>> <@442355791412854784> \`Tomato#6966\` [\`Website\`](https://milrato.eu) [\`INVITE\`](https://discord.com/api/oauth2/authorize?client_id=789845410998779904&permissions=8&scope=bot)
-                `)
-            .addField("**__Music - Supported sources__**", `
-                >>> \`Youtube\`, \`Soundcloud\`, [\`More\`](https://links.musicium.eu), ...
-                `)
-            .setFooter("To see command descriptions and usage type   p!help [CMD Name]", client.user.displayAvatarURL())
+            .setTitle('Help Menu')
+            .setFooter(`To see command descriptions and usage type ${config.prefix}help [Command Name]`, client.user.displayAvatarURL())
 
         const commands = (category) => {
             return client.commands
@@ -137,7 +131,7 @@ module.exports = (client) => {
                     (channel.name.includes("cmd") || channel.name.includes("command") || channel.name.includes("bot")) &&
                     channel.permissionsFor(newState.member.guild.me).has("SEND_MESSAGES")
                 );
-                channel.send("Don't unmute me!, i muted my self again! This safes Data so it gives you a faster and smoother experience")
+                channel.send("Don't unmute me!, I muted my self again! This saves Data so it gives you a faster and smoother experience")
                 newState.setDeaf(true);
             } catch (error) {
                 try {
@@ -146,7 +140,7 @@ module.exports = (client) => {
                         channel.type === "text" &&
                         channel.permissionsFor(newState.member.guild.me).has("SEND_MESSAGES")
                     );
-                    channel.send("Don't unmute me!, i muted my self again! This safes Data so it gives you a faster and smoother experience")
+                    channel.send("Don't unmute me!, I muted my self again! This saves Data so it gives you a faster and smoother experience")
                     newState.setDeaf(true);
                 } catch (error) {
                     newState.setDeaf(true);
