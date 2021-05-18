@@ -380,7 +380,7 @@ module.exports = (client) => {
 			try {
 				queue.autoplay = false;
 				queue.volume = 50;
-				queue.filter = "bassboost6";
+				//queue.filter = "bassboost6";
 			} catch (error) {
 				console.error(error);
 				functions.errorbuilder(error.stack.toString().substr(0, 2000));

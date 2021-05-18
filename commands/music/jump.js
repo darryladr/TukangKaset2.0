@@ -13,7 +13,7 @@ module.exports = {
             return functions.embedbuilder(client, 6000, message, config.colors.no, "DJ-ROLE", `❌ You don\'t have permission for this Command! You need to have: ${functions.check_if_dj(message)}`)
 
         //If Bot not connected, return error
-        if (!message.guild.me.voice.channel) return functions.embedbuilder(client, 3000, message, config.colors.no, "Nothing playing!")
+        if (!message.guild.me.voice.channel) return functions.embedbuilder(client, 5000, message, config.colors.no, "Nothing playing!")
 
         //if member not connected return error
         if (!message.member.voice.channel) return functions.embedbuilder(client, 5000, message, config.colors.no, "`" + message.author.tag + "`" + " You must join a Voice Channel")
@@ -28,14 +28,14 @@ module.exports = {
         let queue = client.distube.getQueue(message);
         
         //if no queue return error
-        if (!queue) return functions.embedbuilder(client, 3000, message, config.colors.no, "There is nothing playing!");
+        if (!queue) return functions.embedbuilder(client, 5000, message, config.colors.no, "There is nothing playing!");
 
         if (0 <= Number(args[0]) && Number(args[0]) <= queue.songs.length) {
-            functions.embedbuilder(client, 3000, message, config.colors.yes, "SUCCESS", `Jumped ${parseInt(args[0])} songs!`)
+            functions.embedbuilder(client, 5000, message, config.colors.yes, "SUCCESS", `Jumped ${parseInt(args[0])} songs!`)
             return client.distube.jump(message, parseInt(args[0]))
                 .catch(err => message.channel.send("Invalid song number."));
         } else {
-            return functions.embedbuilder(client, 3000, message, config.colors.no, "ERROR", `Please use a number between **0** and **${DisTube.getQueue(message).length}**   |   *(0: disabled, 1: Repeat a song, 2: Repeat all the queue)*`)
+            return functions.embedbuilder(client, 5000, message, config.colors.no, "ERROR", `Please use a number between **0** and **${DisTube.getQueue(message).length}**   |   *(0: disabled, 1: Repeat a song, 2: Repeat all the queue)*`)
         }
     }
 };

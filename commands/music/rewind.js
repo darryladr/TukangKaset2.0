@@ -12,7 +12,7 @@ module.exports = {
         return functions.embedbuilder(client, 6000, message, config.colors.no, "DJ-ROLE", `❌ You don\'t have permission for this Command! You need to have: ${functions.check_if_dj(message)}`)
     
         //If Bot not connected, return error
-        if (!message.guild.me.voice.channel) return functions.embedbuilder(client, 3000, message, config.colors.no, "Nothing playing!")
+        if (!message.guild.me.voice.channel) return functions.embedbuilder(client, 5000, message, config.colors.no, "Nothing playing!")
         
         //if member not connected return error
         if (!message.member.voice.channel) return functions.embedbuilder(client, 5000, message, config.colors.no, "`" + message.author.tag + "`" + " You must join a Voice Channel")
@@ -24,7 +24,7 @@ module.exports = {
         let queue = client.distube.getQueue(message);
 
         //if no Queue return error message
-        if (!queue) return functions.embedbuilder(client, 3000, message, config.colors.no, "Nothing playing!")
+        if (!queue) return functions.embedbuilder(client, 5000, message, config.colors.no, "Nothing playing!")
 
         //if no arguments, return error message
         if (!args[0]) return functions.embedbuilder(client, 5000, message, config.colors.no, "`" + message.author.tag + "`" + "Please add the amount you wanna rewind")
@@ -39,7 +39,7 @@ module.exports = {
         client.distube.seek(message, Number(seektime));
 
         //send information message
-        functions.embedbuilder(client, 3000, message, config.colors.yes, "REWIND!", `Rewinded the song for \`${args[0]} seconds\``)
+        functions.embedbuilder(client, 5000, message, config.colors.yes, "REWIND!", `Rewinded the song for \`${args[0]} seconds\``)
     }
 };
 

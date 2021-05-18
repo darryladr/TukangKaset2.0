@@ -13,7 +13,7 @@ module.exports = {
 
 		//If Bot not connected, return error
 		if (!message.guild.me.voice.channel)
-			return functions.embedbuilder(client, 3000, message, config.colors.no, "Nothing playing!");
+			return functions.embedbuilder(client, 5000, message, config.colors.no, "Nothing playing!");
 
 		//if member not connected return error
 		if (!message.member.voice.channel)

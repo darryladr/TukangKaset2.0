@@ -12,7 +12,7 @@ module.exports = {
         return functions.embedbuilder(client, 6000, message, config.colors.no, "DJ-ROLE", `❌ You don\'t have permission for this Command! You need to have: ${functions.check_if_dj(message)}`)
 
         //If Bot not connected, return error
-        if (!message.guild.me.voice.channel) return functions.embedbuilder(client, 3000, message, config.colors.no, "Nothing playing!")
+        if (!message.guild.me.voice.channel) return functions.embedbuilder(client, 5000, message, config.colors.no, "Nothing playing!")
         
         //if member not connected return error
         if (!message.member.voice.channel) return functions.embedbuilder(client, 5000, message, config.colors.no, "`" + message.author.tag + "`" + " You must join a Voice Channel")
@@ -27,7 +27,7 @@ module.exports = {
         if (Number(args[0]) > 100 && Number(args[0]) < 0) return functions.embedbuilder(client, "null", message, config.colors.no, "Invalid Number", "Please insert a value between `0` and `100`")
         
         //send information message
-        functions.embedbuilder(client, 3000, message, config.colors.yes, "Volume!", `Changed volume to \`${args[0]} %\``)
+        functions.embedbuilder(client, 5000, message, config.colors.yes, "Volume!", `Changed volume to \`${args[0]} %\``)
         
         //set the volume
         await client.distube.setVolume(message, args[0]);

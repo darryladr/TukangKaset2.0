@@ -12,7 +12,7 @@ module.exports = {
         return functions.embedbuilder(client, 6000, message, config.colors.no, "DJ-ROLE", `❌ You don\'t have permission for this Command! You need to have: ${functions.check_if_dj(message)}`)
     
         //If Bot not connected, return error
-        if (!message.guild.me.voice.channel) return functions.embedbuilder(client, 3000, message, config.colors.no, "Nothing playing!")
+        if (!message.guild.me.voice.channel) return functions.embedbuilder(client, 5000, message, config.colors.no, "Nothing playing!")
         
         //if member not connected return error
         if (!message.member.voice.channel) return functions.embedbuilder(client, 5000, message, config.colors.no, "`" + message.author.tag + "`" + " You must join a Voice Channel")
@@ -21,7 +21,7 @@ module.exports = {
         if (message.member.voice.channel.id != message.guild.me.voice.channel.id) return functions.embedbuilder(client, 5000, message, config.colors.no, "`" + message.author.tag + "`" + " You must join my Voice Channel: " + ` \`${message.guild.me.voice.channel.name ? message.guild.me.voice.channel.name : ""}\``)
                 
         //send information message
-        functions.embedbuilder(client, 3000, message, config.colors.yes, "Shuffled!")
+        functions.embedbuilder(client, 5000, message, config.colors.yes, "Shuffled!")
 
         //shuffle the queue
         client.distube.shuffle(message);

@@ -14,7 +14,7 @@ module.exports = {
         //    return functions.embedbuilder(client, 6000, message, config.colors.no, "DJ-ROLE", `❌ You don\'t have permission for this Command! You need to have: ${functions.check_if_dj(message)}`)
 
         //If Bot not connected, return error
-        if (!message.guild.me.voice.channel) return functions.embedbuilder(client, 3000, message, config.colors.no, "Nothing playing!")
+        if (!message.guild.me.voice.channel) return functions.embedbuilder(client, 5000, message, config.colors.no, "Nothing playing!")
 
         //if member not connected return error
         if (!message.member.voice.channel) return functions.embedbuilder(client, 5000, message, config.colors.no, "`" + message.author.tag + "`" + " You must join a Voice Channel")
@@ -26,7 +26,7 @@ module.exports = {
         let queue = client.distube.getQueue(message);
         
         //if no queue return error
-        if (!queue) return functions.embedbuilder(client, 3000, message, config.colors.no, "There is nothing playing!");
+        if (!queue) return functions.embedbuilder(client, 5000, message, config.colors.no, "There is nothing playing!");
 
         //send info msg
         return message.channel.send(new MessageEmbed()

@@ -116,11 +116,10 @@ function QueueEmbed(client, queue) {
 		let embeds = [];
 		let k = 10;
 		//defining each Pages
-		for (let i = 0; i < queue.songs.length; i += 10) {
+		for (let i = 1; i < queue.songs.length; i += 10) {
 			let qus = queue.songs;
 			const current = qus.slice(i, k);
 			let j = i;
-			k += 10;
 			const info = current
 				.map(
 					(track) =>
@@ -288,7 +287,7 @@ async function playsongyes(client, message, queue, song) {
 			if (!member.voice.channel)
 				return embedbuilder(
 					client,
-					3000,
+					5000,
 					message,
 					config.colors.no,
 					"`" + message.author.tag + "`" + " You must join a Voice Channel"
@@ -298,7 +297,7 @@ async function playsongyes(client, message, queue, song) {
 			if (member.voice.channel.id !== member.guild.me.voice.channel.id)
 				return embedbuilder(
 					client,
-					3000,
+					5000,
 					message,
 					config.colors.no,
 					"`" + message.author.tag + "`" + " You must join my Voice Channel"
@@ -322,12 +321,12 @@ async function playsongyes(client, message, queue, song) {
                     if (queue.playing) {
                         queue.playing = false;
                         client.distube.pause(message);
-                        embedbuilder(client, 3000, message, config.colors.yes, "Skipped!", `Skipped the song`);
+                        embedbuilder(client, 5000, message, config.colors.yes, "Skipped!", `Skipped the song`);
                     }
                     else {
                         queue.playing = true;
                         client.distube.resume(message);
-                        embedbuilder(client, 3000, message, config.colors.yes, "Skipped!", `Skipped the song`);
+                        embedbuilder(client, 5000, message, config.colors.yes, "Skipped!", `Skipped the song`);
                     }
 					playingMessage.reactions.removeAll().catch(console.error);
 					playingMessage.delete({ timeout: client.ws.ping });
@@ -335,7 +334,7 @@ async function playsongyes(client, message, queue, song) {
 
 				case "⏭":
 					client.distube.skip(message);
-					embedbuilder(client, 3000, message, config.colors.yes, "Skipped!", `Skipped the song`);
+					embedbuilder(client, 5000, message, config.colors.yes, "Skipped!", `Skipped the song`);
 					playingMessage.reactions.removeAll().catch(console.error);
 					playingMessage.delete({ timeout: client.ws.ping });
 					break;
@@ -348,7 +347,7 @@ async function playsongyes(client, message, queue, song) {
 					});
 					embedbuilder(
 						client,
-						3000,
+						5000,
 						message,
 						config.colors.no,
 						"Stopped!",
@@ -360,7 +359,7 @@ async function playsongyes(client, message, queue, song) {
 					await client.distube.setVolume(message, Number(queue.volume) - 10);
 					embedbuilder(
 						client,
-						3000,
+						5000,
 						message,
 						config.colors.yes,
 						"Volume",
@@ -372,7 +371,7 @@ async function playsongyes(client, message, queue, song) {
 					await client.distube.setVolume(message, Number(queue.volume) + 10);
 					embedbuilder(
 						client,
-						3000,
+						5000,
 						message,
 						config.colors.yes,
 						"Volume",
@@ -387,7 +386,7 @@ async function playsongyes(client, message, queue, song) {
 
 					embedbuilder(
 						client,
-						3000,
+						5000,
 						message,
 						config.colors.yes,
 						"Seeked!",
@@ -404,7 +403,7 @@ async function playsongyes(client, message, queue, song) {
 
 					embedbuilder(
 						client,
-						3000,
+						5000,
 						message,
 						config.colors.yes,
 						"Seeked!",

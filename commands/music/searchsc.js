@@ -36,7 +36,7 @@ module.exports = {
 
         
         //send information message
-        functions.embedbuilder(client, 3000, message, config.colors.yes, "🔎 Searching!", args.join(" "))
+        functions.embedbuilder(client, 5000, message, config.colors.yes, "🔎 Searching!", args.join(" "))
 
         //search in soundcloud
         scdl.search('tracks', args.join(" "))

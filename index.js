@@ -181,22 +181,22 @@ client.on("message", async (message) => {
 
 client.login(config.token);
 
-process.on("unhandledRejection", (reason, p) => {
-	console.log("=== unhandled Rejection ===".toUpperCase());
-});
-process.on("uncaughtException", (err, origin) => {
-	console.log("=== uncaught Exception ===".toUpperCase());
-});
-process.on("uncaughtExceptionMonitor", (err, origin) => {
-	console.log("=== uncaught Exception Monitor ===".toUpperCase());
-});
+// process.on("unhandledRejection", (reason, p) => {
+// 	console.log("=== unhandled Rejection ===".toUpperCase());
+// });
+// process.on("uncaughtException", (err, origin) => {
+// 	console.log("=== uncaught Exception ===".toUpperCase());
+// });
+// process.on("uncaughtExceptionMonitor", (err, origin) => {
+// 	console.log("=== uncaught Exception Monitor ===".toUpperCase());
+// });
 
-process.on("beforeExit", (code) => {
-	console.log("=== before Exit ===".toUpperCase());
-});
-process.on("exit", (code) => {
-	console.log("=== exit ===".toUpperCase());
-});
-process.on("multipleResolves", (type, promise, reason) => {
-	console.log("=== multiple Resolves ===".toUpperCase());
-});
+// process.on("beforeExit", (code) => {
+// 	console.log("=== before Exit ===".toUpperCase());
+// });
+// process.on("exit", (code) => {
+// 	console.log("=== exit ===".toUpperCase());
+// });
+// process.on("multipleResolves", (type, promise, reason) => {
+// 	console.log("=== multiple Resolves ===".toUpperCase());
+// });
